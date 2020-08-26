@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1">
+  <title>Passcode</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+      background: #375ffa;
+    }
+  </style>
+</head>
+<body>
+
+  <js-passcode id="passcode"></js-passcode>
+
+  <script type="module">
+    import '../dist/build.esm.js';
+
+    // Correct passcode
+    const correctPasscode = '1234';
+
+    // Passcode authentication
+    document.querySelector('#passcode').authenticate(correctPasscode, success => {
+      // If the passcode is correct, the callback function argument returns true.
+      if (success) alert('Authenticated Successfully');
+      else alert('Authentication Failed');
+    });
+  </script>
+</body>
+</html>
